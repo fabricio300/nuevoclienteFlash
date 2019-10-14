@@ -3,7 +3,7 @@ import { efectos } from './Efectos';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { GlobalService} from '../../global.service';
-
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 @Component({
   selector: 'app-inicio',
@@ -72,6 +72,7 @@ export class InicioPage implements OnInit {
     private menu:MenuController,
     private router:Router,
     private global:GlobalService,
+    private notificacion:LocalNotifications,
   ) { }
 
   ngOnInit() {
@@ -89,7 +90,7 @@ export class InicioPage implements OnInit {
   document.getElementById('filtros').style.transition="0.5s"
   this.efectos1.ocultarFiltros()
 
-    
+      this.mensaje()
   }
 
 
@@ -122,6 +123,28 @@ cerraSecion(){
 irALavanderia(){
   this.router.navigate(['/lavanderia'])
 }
+
+
+
+
+
+
+
+/**--------------------notificaciones ------------------------------------------------------------------------------------------- */
+
+mensaje(){
+  console.log('mensaje');
+  
+  this.notificacion.schedule({
+      id: 1,
+      smallIcon: 'res://information',
+      text: 'mensaje',
+      icon: 'file://assets/iconos/flaswash.png', 
+    });
+}
+
+
+
 
 
 }
