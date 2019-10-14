@@ -1,0 +1,510 @@
+<ion-header>
+  <ion-toolbar color='primary'>
+      <ion-buttons slot="start">
+          <ion-back-button ></ion-back-button>
+       </ion-buttons>  
+    <ion-title>Solicitud de servicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+
+<div class="contenedor" >
+
+  <div class="infoStatus centrar">
+
+
+      <div class="parte centrar  "  [ngClass]="{'actual':this.efectos.actual==0 }">
+        <img src="{{this.efectos.iconLavadors}}" width="30px">
+      </div>
+
+
+      <div class="parte centrar"  [ngClass]="{'actual':this.efectos.actual==1 }">
+        <img src="{{this.efectos.iconMoto}}" width="30px">
+      </div>
+
+      <div class="parte centrar"  [ngClass]="{'actual':this.efectos.actual==2 }">
+          <img src="{{this.efectos.iconinstrucciones}}" width="30px">
+      </div>
+
+
+      <div class="parte centrar"  [ngClass]="{'actual':this.efectos.actual==3 }">
+          <img src="{{this.efectos.iconNota}}" width="30px">
+      </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <!--servcios----------------------------------------------------------> 
+
+    <div 
+        style="position: relative;"
+        [ngClass]="{'ocultar':this.efectos.actual!=0,'semegmento':this.efectos.actual==0 }"
+    >
+    
+  
+    <h4>Servicios requeridos</h4>      
+    <div class="contScroll">
+
+      <label *ngFor="let servi of servicios">
+            <p  class="centrarIZ"  *ngIf="servi.elegido">
+
+                {{servi.servicio}}
+                <img 
+                (click)="this.efectos.removerServicio(servi)"
+                src="{{this.efectos.iconMenos}}" width="20px" style="margin-left: 5px; cursor: pointer;">
+            </p>
+
+
+      </label>
+
+      
+
+      <label *ngIf="this.efectos.pedidos==0">Ninguno :(</label>
+      
+        
+    </div>    
+
+    
+    <div class="conteother">
+        <div class="listaNoelegida" *ngIf="this.efectos.listaServicios">
+            <label *ngFor="let servi2 of servicios">
+                <p  
+                (click)="this.efectos. addServicio(servi2)"
+                class="centrarIZ"  *ngIf="!servi2.elegido">
+                    {{servi2.servicio}}
+               </p>
+  
+  
+          </label>
+
+          <label *ngIf="this.efectos.todo">
+            A solicitado todos los servicios disponibles :)
+          </label>
+        </div>
+
+
+        <button style="float: right; background: transparent; outline: none;" 
+        
+        (click)="this.efectos.mostrarLista()">
+          <img *ngIf="!this.efectos.listaServicios"
+          src="{{this.efectos.iconMas}}" width="40px">
+          <img *ngIf="this.efectos.listaServicios"
+          src="{{this.efectos.iconMenos}}" width="40px">
+        </button>
+    </div>
+   
+
+   
+
+    
+    <div class="centrar" style="height: 10%">
+
+
+
+      <ion-button
+      (click)="this.efectos.next()"
+      >
+        Continuar
+      </ion-button>
+    </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div 
+[ngClass]="{'ocultar':this.efectos.actual!=1,'semegmento':this.efectos.actual==1 }">
+    
+  
+    <h4>Tipo de entrega</h4>      
+    <div class="contScroll">
+
+        <ion-list>
+        <ion-radio-group [(ngModel)]="this.efectos.tipoDeEntrega">
+          
+      
+              <p class="centrarIZ"    >
+                  <ion-radio slot="start"  style="margin:3px; "
+                  value="tipo1"
+                  ></ion-radio>
+                  Solo deseo que vengan por mi ropa
+
+                  <img 
+                  (click)="this.efectos.mostrarReparto('tipo1')"
+                  src="{{this.efectos.duda}}" width="20px" style="margin:3px;cursor: pointer;  ">
+              </p>  
+  
+             
+              <p class="infoS"  *ngIf="this.efectos.reparto=='tipo1'">
+                  En este servicio un empleado de flash wash llegara su domicilio para encargarse del pesaje de las prendas que tenga a disposición, del cobro de servicios de lavandería y transporte. Para posteriormente transporta la ropa a la lavandería seleccionada.
+              </p>
+
+        
+         
+       
+
+
+          <p class="centrarIZ">
+              <ion-radio 
+              style="margin:3px; "
+              value="tipo2" ></ion-radio>
+              Solo deseo que traigan  mi ropa
+              <img 
+              (click)="this.efectos.mostrarReparto('tipo2')"
+              src="{{this.efectos.duda}}" width="20px" style="margin:3px;cursor: pointer; ">
+          </p>  
+
+
+          <p class="infoS" *ngIf="this.efectos.reparto=='tipo2'">
+              En este servicio un empleado de flash wash se encargar de entregar a su domicilio las prendas que usted llevara a la lavandería seleccionada. Una vez echa la entrega se cobrará este servicio. 
+          </p>
+
+          
+          <p class="centrarIZ">
+              <ion-radio
+              style="margin:3px; "
+              value="tipo3" ></ion-radio>
+              Servicio completo
+              <img 
+              (click)="this.efectos.mostrarReparto('tipo3')"
+              src="{{this.efectos.duda}}" width="20px" style="margin:3px; cursor: pointer; ">
+          </p>    
+
+         
+          <p class="infoS" *ngIf="this.efectos.reparto=='tipo3'">
+             
+            Este servicio incluye el transporte de la ropa de: su domicilio a lavandería y de lavandería a su domicilio.  Es servicio se divide en dos cobros:  cundo se recoge la ropa y cuando se entrega. 
+
+          </p>
+        
+            
+      
+          
+          </ion-radio-group>
+        </ion-list>
+
+
+        
+          <br>
+          <label >
+            Ingrese su direccion:
+          </label>
+          <ion-input placeholder="direccion"></ion-input>
+
+    </div>    
+
+   
+
+
+    
+    <div class="centrar" style="height: 10%">
+
+        <ion-button
+        (click)="this.efectos.regresar()"
+        >
+          Regresar
+        </ion-button>
+
+
+      <ion-button
+      (click)="this.efectos.next()"
+      >
+        Continuar
+      </ion-button>
+    </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div 
+    [ngClass]="{'ocultar':this.efectos.actual!=2,'semegmento':this.efectos.actual==2 }">
+    
+  
+    <h4>Indicaciones</h4>      
+    <div class="contScroll">
+
+      <label >
+        Indique información respecto a la situación de sus prendas:
+        <br>
+        <a style="font-size: 12px;">Este campo es opcional</a>
+      </label>
+
+      <ion-textarea [(ngModel)]="this.efectos.indicaciones"
+      rows="20" style="width: 100%; height: 50%; border: 1px solid gray; padding: 5px;"></ion-textarea>
+
+    </div>    
+
+   
+
+
+    
+    <div class="centrar" style="height: 10%">
+
+        <ion-button
+        (click)="this.efectos.regresar()"
+        >
+          Regresar
+        </ion-button>
+
+
+      <ion-button
+      (click)="this.efectos.next()"
+      >
+        Continuar
+      </ion-button>
+    </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div 
+    [ngClass]="{'ocultar':this.efectos.actual!=3,'semegmento':this.efectos.actual==3 }">
+    
+  
+    <h4>Ticket</h4>      
+    <div class="contScroll " style="display: flex; flex-wrap: wrap; justify-content: center; ">
+
+     
+
+      <div class="cobros">
+          <h6 style="color: #ff0000;">Costes:</h6>
+        <label *ngIf="this.efectos.tipoDeEntrega=='tipo1' || this.efectos.tipoDeEntrega=='tipo3'">
+            <p style="font-size: 12px;">transportar a lavandería:</p>
+            <p style="color: #3BB200;">$50</p>
+          
+        </label>
+       
+
+        <label *ngIf="this.efectos.tipoDeEntrega=='tipo2' || this.efectos.tipoDeEntrega=='tipo3'">
+            <p style="font-size: 12px;">transportar a domicilio:</p>
+            <p style="color: #3BB200;">$50</p>
+        </label>
+        
+        <label >
+          <p style="font-size: 12px;">servicios de lavandería:</p>
+          <p style="color: #3BB200;">
+            $50
+          </p>
+        </label>
+
+
+        <label >
+          <p style="color: #ff0000;">Total:</p>
+          <p style="color: #3BB200;">
+              $150
+          </p>
+        </label>
+
+
+      </div>
+
+      <div class="listaSer ">
+          <h6 style="color: white; font-size: 15px;">Servicios solicitados:</h6>
+          <label *ngFor="let servi3 of servicios">
+              <p  class="centrarIZ" 
+              style="font-size: 13px;"
+              *ngIf="servi3.elegido">
+  
+                  - {{servi3.servicio}}
+              </p>
+  
+  
+        </label>
+
+
+        
+      <label *ngIf="this.efectos.indicaciones!=''">
+        <br>
+          <p style="color: white;font-size: 15px;">Indicaciones:</p>
+          <p style="font-size:12px; ">{{this.efectos.indicaciones}}   </p>
+        </label>
+
+      </div>
+
+      
+
+
+    </div>    
+
+   
+
+
+    
+    <div class="centrar" style="height: 10%">
+       <ion-button
+        (click)="this.efectos.regresar()"
+        >
+          Regresar
+        </ion-button>
+
+        <ion-button
+        >
+          Aceptar
+        </ion-button>
+    </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+          
+        
+
+
+</ion-content>

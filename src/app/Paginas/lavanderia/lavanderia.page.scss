@@ -1,0 +1,93 @@
+.contenedorSlider{
+    background: #252525;
+    width: 100%;
+    height:50%;
+}
+
+.slider{
+    //background: red;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 5px;
+}
+
+.centrar{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.centrarIz{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: center
+
+}
+
+
+.icon{
+color: #3c9d9b;
+}
+
+.icon::content img{
+    width: 20px;
+    margin: 3px;
+}
+
+
+
+.UParrow {
+    -moz-transform: scaleY(-1); /* Firefox */
+    -o-transform: scaleY(-1); /* Opera */
+    -webkit-transform: scaleY(-1); /* Chrome y Safari */
+    transform: scaleY(-1); /* w3org */
+    filter: FlipV; /* Internet Explorer */
+}
+
+
+.infoServicio{
+    height: 0px;
+    background: #252525;
+    overflow: hidden;
+    color: white;
+}
+
+.infoOferta{
+    height: 0px;
+    background: #032d3c;
+    color: #94fc13;
+    overflow: hidden;
+}
+
+.infoServicio::content img,.infoOferta::content img{
+    max-height: 90%;
+    width: auto;
+    border-radius: 5px;
+}
+
+.infoServicio::content p,.infoOferta::content p{
+    max-width: 50%;
+   
+    
+}
+
+
+.actual{
+    color: #BDBDBD;
+    border-bottom: 1px solid #BDBDBD;
+}
+
+@media(max-width:600px){
+    .infoServicio::content img,.infoOferta::content img{
+        height: auto;
+        max-width: 45%;
+    }
+
+    .infoServicio::content p,.infoOferta::content p{
+        max-width: 45%;
+        font-size: 13px;
+    }
+    
+}

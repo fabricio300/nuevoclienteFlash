@@ -1,0 +1,43 @@
+.part{
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+}
+
+.centrar{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.imagen{
+    max-width: 90%;
+   height: auto;
+}
+
+.part::content ion-button{
+    width: 40%;
+    font-size: 13px;
+}
+
+.formulario{
+    width: 90%;
+    //background: blueviolet;
+}
+
+.formulario::content ion-input{
+    border-bottom: 1px solid  #979797;
+    margin-bottom: 20px;
+}
+
+.formulario::content label{
+    color: #707070 ;
+}
+
+
+@media(max-width:600px){
+    .media{
+        width: 90%; margin:auto; margin-top:30%;
+    }
+}

@@ -1,0 +1,133 @@
+.contenedor{
+    width: 100%;
+    height: 100%;
+    
+}
+
+.infoStatus{
+    height: 15%;
+    width: 100%;
+    background: white;
+}
+
+.semegmento{
+    //background: #414141;
+    width: 100%;
+    height: 80%;
+    overflow: hidden;
+    padding: 5px;
+}
+
+.parte{
+    width: 25%;
+    
+    height: 100%;
+    //border: 1px solid gray;
+
+    border-bottom: 1px solid gray;
+}
+.centrar{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.centrarIZ{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: center;
+}
+
+
+
+.contScroll{
+    width: 100%;
+    height: 80%;
+    //background: blueviolet;
+    overflow: hidden;
+    overflow-y: scroll;
+    padding: 4px;
+    position: relative;
+}
+
+
+::-webkit-scrollbar{
+    width: 0px;
+}
+
+
+
+.ocultar{
+    overflow: hidden;
+    display: none;
+}
+
+.conteother{
+    height: auto;
+    width: auto;
+    //background: red;
+    position: absolute;
+    bottom: 15%;
+    right: 10px;
+}
+
+.listaNoelegida{
+    background: #3c9d9b;
+    color: white;
+    padding: 8px;
+    height:  230px;
+    overflow-y: scroll;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    width: 200px;
+}
+
+.listaNoelegida::content p{
+    border-bottom: 1px solid white;
+    cursor: pointer;
+}
+
+.infoS{
+    width: 90%;
+    font-size: 12px;
+    background: transparent;
+    padding: 5px;
+    border-bottom: 1px solid gray;
+    color: gray;
+}
+
+.listaSer{
+    
+    width: 49%;
+    max-height:85%;
+    background: #414141;
+    padding: 10px;
+  
+    margin: 5px;
+    margin-bottom: auto;
+    overflow-y: scroll;
+}
+
+.listaSer::content p{
+    color: #E8CF00;
+}
+
+.cobros{
+    //background: red;
+    //border: 1px solid gray;
+    width: 45%;
+    margin: 5px;
+    height: auto;
+    padding: 10px;
+}
+
+.actual{
+    
+    -webkit-box-shadow: 10px 10px 16px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 16px -7px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 16px -7px rgba(0,0,0,0.75);
+}
